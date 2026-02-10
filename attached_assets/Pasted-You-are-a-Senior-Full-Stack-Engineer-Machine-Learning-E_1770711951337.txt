@@ -1,0 +1,167 @@
+You are a Senior Full-Stack Engineer, Machine Learning Engineer, and Database Architect.
+
+I am building a COLLEGE MINOR PROJECT titled:
+
+"Role-Based Dropout & Academic Risk Prediction System for Educational Institutions"
+
+This is NOT a startup.
+It is an institutional decision-support system for:
+- Universities
+- Schools
+- Coaching institutes
+- Teachers & counselors
+
+────────────────────────────────────
+TECH STACK (MANDATORY)
+────────────────────────────────────
+Backend:
+- Python
+- Flask
+- PostgreSQL (via SQLAlchemy)
+- Flask-Login / session-based auth
+
+ML:
+- Scikit-learn
+- Random Forest
+- Synthetic dataset generation
+
+Frontend:
+- HTML, CSS, JavaScript
+- UI style inspired by MetaMask website
+  (clean, centered cards, minimal gradients, Web3-like)
+
+────────────────────────────────────
+USER ROLES (VERY IMPORTANT)
+────────────────────────────────────
+
+1. STUDENT
+- Can SIGN UP and LOGIN
+- Can see ONLY his/her own data
+- Can:
+  - Enter academic details
+  - Answer stress questions
+  - View:
+    - Risk score
+    - Risk level
+    - Progress over time
+    - Recommendations
+  - Play stress-relief games
+- Cannot see other students
+
+2. TEACHER
+- Can SIGN UP and LOGIN
+- Can:
+  - Add multiple students (basic profile)
+  - View list of students under their account
+  - Enter / update academic data for students
+  - View:
+    - Individual student progress
+    - Risk trends
+    - Stress indicators
+- Teacher CANNOT see students from another teacher
+
+────────────────────────────────────
+TEACHER → STUDENT FLOW
+────────────────────────────────────
+
+1. Teacher signs up
+2. Teacher adds a student (name + email)
+3. System asks student to SIGN UP using that email
+4. Student logs in and:
+   - Sees assigned teacher
+   - Can view own dashboard
+   - Can play stress-relief games
+5. Teacher can later:
+   - View student’s progress
+   - Monitor risk levels
+   - Take academic assessment decisions
+
+────────────────────────────────────
+DATABASE (POSTGRESQL REQUIRED)
+────────────────────────────────────
+
+Design tables for:
+- users (id, name, email, password_hash, role)
+- students (id, user_id, teacher_id)
+- academic_records
+- stress_records
+- predictions
+- progress_history
+
+Use SQLAlchemy ORM.
+Use proper foreign keys.
+
+────────────────────────────────────
+AUTHENTICATION & SECURITY
+────────────────────────────────────
+- Signup & Login pages
+- Password hashing
+- Session-based authentication
+- Role-based route protection
+  (student cannot access teacher routes, and vice versa)
+
+────────────────────────────────────
+DASHBOARD REQUIREMENTS
+────────────────────────────────────
+
+STUDENT DASHBOARD:
+- MetaMask-style centered card layout
+- Academic form
+- Stress questionnaire (NO manual stress score)
+- Risk prediction
+- Progress chart
+- Stress-relief games
+- Only own data visible
+
+TEACHER DASHBOARD:
+- Student list view
+- Add / edit student data
+- View student analytics
+- Progress comparison charts
+
+────────────────────────────────────
+STRESS HANDLING (MANDATORY)
+────────────────────────────────────
+- Ask behavioral questions
+- Calculate stress score automatically in JS
+- Store stress score in DB
+- Trigger stress-relief UI dynamically
+
+────────────────────────────────────
+IMPORTANT BUGS TO AVOID
+────────────────────────────────────
+- No static dashboards
+- No data leakage between users
+- No model predict_proba index errors
+- No loss of form data on submit
+- No shared student visibility across teachers
+
+────────────────────────────────────
+OUTPUT EXPECTATIONS
+────────────────────────────────────
+- Full working project
+- PostgreSQL integrated
+- Login + Signup implemented
+- Role-based dashboards
+- ML + UI fully connected
+- MetaMask-style UI
+- Code must run on Replit
+
+────────────────────────────────────
+WORKING STYLE
+────────────────────────────────────
+Work step-by-step:
+1. Database schema
+2. Authentication system
+3. Role-based routing
+4. ML integration
+5. Student dashboard
+6. Teacher dashboard
+7. UI polish (MetaMask-style)
+8. Final testing
+
+DO NOT SKIP STEPS.
+DO NOT SIMPLIFY ROLE LOGIC.
+DO NOT CHANGE CORE FUNCTIONALITY.
+
+The final system must behave like a REAL institutional portal.
