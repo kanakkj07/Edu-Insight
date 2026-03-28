@@ -1,5 +1,6 @@
 import { z } from 'zod';
-import { insertUserSchema, insertStudentSchema, insertAcademicSchema, users, students, academicRecords, stressRecords, predictions } from './schema';
+import { insertUserSchema, insertStudentSchema, insertAcademicSchema, users, students, academicRecords, semesterRecords, stressRecords, predictions } from './schema';
+export * from './schema';
 
 // ============================================
 // SHARED ERROR SCHEMAS
@@ -97,9 +98,11 @@ export const api = {
           academic: z.custom<typeof academicRecords.$inferSelect>().nullable(),
           latestStress: z.custom<typeof stressRecords.$inferSelect>().nullable(),
           prediction: z.custom<typeof predictions.$inferSelect>().nullable(),
+          semesterRecords: z.array(z.custom<typeof semesterRecords.$inferSelect>()),
           history: z.object({
             stress: z.array(z.custom<typeof stressRecords.$inferSelect>()),
             academic: z.array(z.custom<typeof academicRecords.$inferSelect>()),
+            semesters: z.array(z.custom<typeof semesterRecords.$inferSelect>()),
           }),
         }),
       },
@@ -118,7 +121,8 @@ export const api = {
       method: 'POST' as const,
       path: '/api/student/stress' as const,
       input: z.object({
-        answers: z.record(z.string(), z.number()), // Question ID -> Score (1-5)
+        answers: z.record(z.string().max(50), z.number().min(1).max(5)) // Question ID -> Score (1-5)
+          .refine(data => Object.keys(data).length <= 50, { message: "Too many answers" }),
       }),
       responses: {
         201: z.custom<typeof stressRecords.$inferSelect>(),

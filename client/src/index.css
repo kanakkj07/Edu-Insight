@@ -4,6 +4,7 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Dark theme (default) */
 :root {
   --background: 240 10% 4%;     /* #0a0a0b */
   --foreground: 0 0% 98%;       /* #fafafa */
@@ -37,6 +38,37 @@
 
   --font-body: 'DM Sans', sans-serif;
   --font-display: 'Outfit', sans-serif;
+}
+
+/* Light theme */
+.light {
+  --background: 0 0% 98%;         /* #fafafa */
+  --foreground: 240 10% 10%;      /* #19191d */
+  
+  --card: 0 0% 100%;              /* #ffffff */
+  --card-foreground: 240 10% 10%;
+
+  --popover: 0 0% 100%;
+  --popover-foreground: 240 10% 10%;
+
+  --primary: 27 96% 50%;          /* slightly deeper orange for contrast */
+  --primary-foreground: 0 0% 100%;
+
+  --secondary: 217 92% 45%;       /* deeper blue for contrast */
+  --secondary-foreground: 0 0% 100%;
+
+  --muted: 240 5% 92%;
+  --muted-foreground: 240 5% 40%;
+
+  --accent: 240 5% 92%;
+  --accent-foreground: 240 10% 10%;
+
+  --destructive: 0 62% 50%;
+  --destructive-foreground: 0 0% 100%;
+
+  --border: 240 5% 85%;
+  --input: 240 5% 85%;
+  --ring: 27 96% 50%;
 }
 
 @layer base {
